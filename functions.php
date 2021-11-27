@@ -1,5 +1,7 @@
 <?php
 
+add_theme_support( 'post-thumbnails' );
+
 function wpr_admin_styles() {
     wp_enqueue_style( 'admin-setting-styles', get_template_directory_uri() . '/assets/css/setting-styles.css' );
 }
