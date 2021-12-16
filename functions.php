@@ -2,6 +2,13 @@
 
 add_theme_support( 'post-thumbnails' );
 
+add_filter( 'graphql_connection_max_query_amount', function( $amount, $source, $args, $context, $info  ) {
+    if ( current_user_can( 'manage_options' ) ) {
+         $amount = 1000;
+    }
+    return $amount;
+}, 10, 5 );
+
 function wpr_admin_styles() {
     wp_enqueue_style( 'admin-setting-styles', get_template_directory_uri() . '/assets/css/setting-styles.css' );
 }
